@@ -3,50 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio - Estilo Sangre Fría</title>
+    <title>Mi Portafolio - Estilo Sangre Fría Moderno</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Mi Portafolio</h1>
-        <p>Desarrollador con "sangre fría" para resolver problemas</p>
+    <!-- Partículas de fondo -->
+    <div class="particulas" id="particulas"></div>
+
+    <!-- Header y Navegación -->
+    <header id="header">
+        <div class="contenedor nav-contenedor">
+            <a href="#" class="logo">Portafolio</a>
+            
+            <div class="menu-btn" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
     </header>
-    
-    <main>
-        <section id="sobre-mi">
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="contenedor hero-contenido">
+            <h1>Desarrollador Full Stack</h1>
+            <p class="hero-subtitulo" id="typed">Creando soluciones con código y creatividad</p>
+            <div class="hero-botones">
+                <a href="#proyectos" class="btn">Ver Proyectos</a>
+                <a href="#contacto" class="btn btn-secundario">Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section class="sobre-mi" id="sobre-mi">
+        <div class="contenedor">
             <h2>Sobre Mí</h2>
-            <p>Aquí va tu descripción personal y profesional.</p>
-        </section>
-        
-        <section id="habilidades">
-            <h2>Habilidades</h2>
-            <div class="habilidades-container">
-                <!-- Las habilidades se agregarán con JavaScript -->
+            <div class="sobre-mi-contenido">
+                <div class="sobre-mi-texto">
+                    <p>Soy un apasionado desarrollador con experiencia en la creación de aplicaciones web modernas y funcionales. Mi objetivo es siempre crear soluciones elegantes y eficientes para problemas complejos.</p>
+                    <p>Me especializo en JavaScript, React, Node.js y otras tecnologías modernas. Disfruto aprendiendo nuevas tecnologías y enfrentando desafíos que me permitan crecer como profesional.</p>
+                    <p>Cuando no estoy programando, me gusta contribuir a proyectos de código abierto, aprender sobre nuevas tendencias tecnológicas y compartir mis conocimientos con la comunidad.</p>
+                    <a href="#" class="btn">Descargar CV</a>
+                </div>
+                <div class="sobre-mi-imagen">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Foto de perfil" class="imagen-perfil">
+                </div>
             </div>
-        </section>
-        
-        <section id="proyectos">
-            <h2>Proyectos</h2>
-            <div class="proyectos-container">
-                <!-- Los proyectos se agregarán con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section class="habilidades" id="habilidades">
+        <div class="contenedor">
+            <h2>Mis Habilidades</h2>
+            <div class="habilidades-contenedor">
+                <div class="habilidad">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Maquetación semántica y accesible de aplicaciones web.</p>
+                    <div class="nivel-habilidad">
+                        <div class="nivel" data-nivel="90"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Diseño responsive, animaciones y layouts modernos.</p>
+                    <div class="nivel-habilidad">
+                        <div class="nivel" data-nivel="85"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad">
+                    <i class="fab fa-js-square"></i>
+                    <h3>JavaScript</h3>
+                    <p>Desarrollo de aplicaciones interactivas y dinámicas.</p>
+                    <div class="nivel-habilidad">
+                        <div class="nivel" data-nivel="80"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                    <p>Creación de interfaces de usuario componentizadas.</p>
+                    <div class="nivel-habilidad">
+                        <div class="nivel" data-nivel="75"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                    <p>Desarrollo backend con JavaScript del lado del servidor.</p>
+                    <div class="nivel-habilidad">
+                        <div class="nivel" data-nivel="70"></div>
+                    </div>
+                </div>
+                
+                <div class="habilidad">
+                    <i class="fas fa-database"></i>
+                    <h3>Bases de Datos</h3>
+                    <p>MongoDB, MySQL y diseño de esquemas eficientes.</p>
+                    <div class="nivel-habilidad">
+                        <div class="nivel" data-nivel="75"></div>
+                    </div>
+                </div>
             </div>
-        </section>
-        
-        <section id="contacto">
-            <h2>Contactoo</h2>
-            <form id="form-contacto">
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Mensaje" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="proyectos" id="proyectos">
+        <div class="contenedor">
+            <h2>Mis Proyectos</h2>
+            <div class="proyectos-contenedor">
+                <div class="proyecto">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Proyecto 1" class="proyecto-imagen">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">E-commerce React</h3>
+                        <p class="proyecto-descripcion">Plataforma de comercio electrónico con carrito de compras, pasarela de pago y panel de administración.</p>
+                        <div class="proyecto-tecnologias">
+                            <span class="tecnologia">React</span>
+                            <span class="tecnologia">Node.js</span>
+                            <span class="tecnologia">MongoDB</span>
+                            <span class="tecnologia">Stripe</span>
+                        </div>
+                        <div class="proyecto-enlaces">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-secundario">Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="proyecto">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Proyecto 2" class="proyecto-imagen">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">App de Tareas</h3>
+                        <p class="proyecto-descripcion">Aplicación para gestión de tareas con recordatorios, categorías y sincronización multiplataforma.</p>
+                        <div class="proyecto-tecnologias">
+                            <span class="tecnologia">Vue.js</span>
+                            <span class="tecnologia">Firebase</span>
+                            <span class="tecnologia">CSS</span>
+                        </div>
+                        <div class="proyecto-enlaces">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-secundario">Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="proyecto">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Proyecto 3" class="proyecto-imagen">
+                    <div class="proyecto-info">
+                        <h3 class="proyecto-titulo">Dashboard Analytics</h3>
+                        <p class="proyecto-descripcion">Panel de control para visualización de datos con gráficos interactivos y reportes personalizables.</p>
+                        <div class="proyecto-tecnologias">
+                            <span class="tecnologia">React</span>
+                            <span class="tecnologia">D3.js</span>
+                            <span class="tecnologia">Python</span>
+                            <span class="tecnologia">FastAPI</span>
+                        </div>
+                        <div class="proyecto-enlaces">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-secundario">Código</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="contenedor">
+            <h2>Contacto</h2>
+            <div class="contacto-contenido">
+                <div class="contacto-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>tu.email@ejemplo.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>+1 (234) 567-8901</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Ubicación</h3>
+                            <p>Ciudad, País</p>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-sociales">
+                        <a href="#" class="red-social"><i class="fab fa-github"></i></a>
+                        <a href="#" class="red-social"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="red-social"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="red-social"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <form class="form-contacto">
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" required>
+                    </div>
+                    
+                    <div class="form-grupo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 - Mi Portafolio</p>
+        <div class="contenedor footer-contenido">
+            <div class="redes-sociales">
+                <a href="#" class="red-social"><i class="fab fa-github"></i></a>
+                <a href="#" class="red-social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="red-social"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="red-social"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">&copy; 2023 Mi Portafolio. Todos los derechos reservados.</p>
+        </div>
     </footer>
-    
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

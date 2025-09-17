@@ -1,86 +1,114 @@
-// Datos de ejemplo (debes reemplazarlos con tu información real)
-const habilidades = [
-    { nombre: "JavaScript", nivel: "Avanzado" },
-    { nombre: "HTML/CSS", nivel: "Avanzado" },
-    { nombre: "React", nivel: "Intermedio" },
-    { nombre: "Node.js", nivel: "Intermedio" },
-    { nombre: "Python", nivel: "Intermedio" },
-    { nombre: "Git", nivel: "Avanzado" }
-];
+// Efecto de partículas
+function crearParticulas() {
+  const contenedor = document.getElementById("particulas");
+  const cantidad = 30;
 
-const proyectos = [
-    { 
-        nombre: "Proyecto 1", 
-        descripcion: "Descripción del proyecto 1", 
-        imagen: "https://via.placeholder.com/300x200?text=Proyecto+1",
-        enlace: "#"
-    },
-    { 
-        nombre: "Proyecto 2", 
-        descripcion: "Descripción del proyecto 2", 
-        imagen: "https://via.placeholder.com/300x200?text=Proyecto+2",
-        enlace: "#"
-    },
-    { 
-        nombre: "Proyecto 3", 
-        descripcion: "Descripción del proyecto 3", 
-        imagen: "https://via.placeholder.com/300x200?text=Proyecto+3",
-        enlace: "#"
+  for (let i = 0; i < cantidad; i++) {
+    const particula = document.createElement("div");
+    particula.classList.add("particula");
+
+    // Tamaño aleatorio entre 3 y 8px
+    const tamaño = Math.random() * 5 + 3;
+    particula.style.width = `${tamaño}px`;
+    particula.style.height = `${tamaño}px`;
+
+    // Posición aleatoria
+    particula.style.left = `${Math.random() * 100}%`;
+    particula.style.top = `${Math.random() * 100}%`;
+
+    // Animación con delay aleatorio
+    particula.style.animationDuration = `${Math.random() * 10 + 10}s`;
+    particula.style.animationDelay = `${Math.random() * 5}s`;
+
+    contenedor.appendChild(particula);
+  }
+}
+
+// Navegación responsive
+function setupNavegacion() {
+  const menuBtn = document.getElementById("menu-btn");
+  const navLinks = document.getElementById("nav-links");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("activo");
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("activo");
+    });
+  });
+}
+
+// Efecto de escritura
+function setupTypedEffect() {
+  const texto = "Creando soluciones con código y creatividad";
+  const elemento = document.getElementById("typed");
+  let index = 0;
+
+  function escribir() {
+    if (index < texto.length) {
+      elemento.innerHTML =
+        texto.substring(0, index + 1) + '<span class="typed-cursor">|</span>';
+      index++;
+      setTimeout(escribir, 100);
     }
-];
+  }
 
-// Función para cargar habilidades
-function cargarHabilidades() {
-    const contenedor = document.querySelector('.habilidades-container');
-    
-    habilidades.forEach(habilidad => {
-        const elemento = document.createElement('div');
-        elemento.classList.add('habilidad');
-        elemento.innerHTML = `
-            <h3>${habilidad.nombre}</h3>
-            <p>Nivel: ${habilidad.nivel}</p>
-        `;
-        contenedor.appendChild(elemento);
-    });
+  escribir();
 }
 
-// Función para cargar proyectos
-function cargarProyectos() {
-    const contenedor = document.querySelector('.proyectos-container');
-    
-    proyectos.forEach(proyecto => {
-        const elemento = document.createElement('div');
-        elemento.classList.add('proyecto');
-        elemento.innerHTML = `
-            <img src="${proyecto.imagen}" alt="${proyecto.nombre}">
-            <div class="proyecto-info">
-                <h3>${proyecto.nombre}</h3>
-                <p>${proyecto.descripcion}</p>
-                <a href="${proyecto.enlace}" target="_blank">Ver proyecto</a>
-            </div>
-        `;
-        contenedor.appendChild(elemento);
+// Mostrar niveles de habilidad al hacer scroll
+function setupHabilidades() {
+  const niveles = document.querySelectorAll(".nivel");
+
+  function mostrarNiveles() {
+    niveles.forEach((nivel) => {
+      const valor = nivel.getAttribute("data-nivel");
+      nivel.style.width = `${valor}%`;
     });
+  }
+
+  // Usar Intersection Observer para activar la animación cuando las habilidades son visibles
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          mostrarNiveles();
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(document.querySelector(".habilidades"));
 }
 
-// Manejo del formulario de contacto
-document.getElementById('form-contacto').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('¡Gracias por tu mensaje! Te responderé pronto.');
-    this.reset();
-});
+// Ocultar/mostrar header al hacer scroll
+function setupHeaderScroll() {
+  const header = document.getElementById("header");
+  let ultimaPosicion = window.pageYOffset;
 
-// Efectos visuales adicionales
-function agregarEfectosSangre() {
-    const titulos = document.querySelectorAll('h1, h2');
-    titulos.forEach(titulo => {
-        titulo.classList.add('sangre-efecto');
-    });
+  window.addEventListener("scroll", () => {
+    const posicionActual = window.pageYOffset;
+
+    if (posicionActual > ultimaPosicion && posicionActual > 100) {
+      header.classList.add("oculto");
+    } else {
+      header.classList.remove("oculto");
+    }
+
+    ultimaPosicion = posicionActual;
+  });
 }
 
-// Inicializar cuando el documento esté cargado
-document.addEventListener('DOMContentLoaded', function() {
-    cargarHabilidades();
-    cargarProyectos();
-    agregarEfectosSangre();
+// Inicializar todo cuando el documento esté cargado
+document.addEventListener("DOMContentLoaded", () => {
+  crearParticulas();
+  setupNavegacion();
+  setupTypedEffect();
+  setupHabilidades();
+  setupHeaderScroll();
 });
