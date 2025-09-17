@@ -1,0 +1,207 @@
+/* Variables de colores inspirados en Sangre Fría */
+:root {
+    --color-fondo: #0d0d0d;
+    --color-texto: #ffffff;
+    --color-primario: #ff003c; /* Rojo similar a la portada */
+    --color-secundario: #8a0e2d;
+    --color-bordes: #333333;
+}
+
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+    border-bottom: 2px solid var(--color-primario);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primario);
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-primario);
+}
+
+section {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para la sección de habilidades */
+.habilidades-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.habilidad {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-bordes);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.habilidad:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primario);
+}
+
+.habilidad h3 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+}
+
+/* Estilos para la sección de proyectos */
+.proyectos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.proyecto {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-bordes);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.proyecto:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primario);
+}
+
+.proyecto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.proyecto-info {
+    padding: 1.5rem;
+}
+
+.proyecto-info h3 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+}
+
+/* Estilos para el formulario de contacto */
+#form-contacto {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#form-contacto input,
+#form-contacto textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-bordes);
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+    border-radius: 3px;
+}
+
+#form-contacto button {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+#form-contacto button:hover {
+    background-color: var(--color-secundario);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--color-bordes);
+    margin-top: 2rem;
+}
+
+/* Efectos de "sangre" para elementos decorativos */
+.sangre-efecto {
+    position: relative;
+}
+
+.sangre-efecto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-primario), transparent);
+    animation: sangreFluyendo 3s infinite linear;
+}
+
+@keyframes sangreFluyendo {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .habilidades-container,
+    .proyectos-container {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
